@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/person',function(){
+    return view('person');
+})->name('add-person');
+Route::get('/person-list',function(){
+    return view('person-list');
+})->name('list-person');
