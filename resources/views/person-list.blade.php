@@ -16,16 +16,27 @@
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
                         <div class="title">
-                            <h4>List of Persons</h4>
+                            <h4>DataTable</h4>
                         </div>
                         <nav aria-label="breadcrumb" role="navigation">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Person Info List</li>
+                                <li class="breadcrumb-item active" aria-current="page">DataTable</li>
                             </ol>
                         </nav>
                     </div>
-
+                    <div class="col-md-6 col-sm-12 text-right">
+                        <div class="dropdown">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
+                                January 2018
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="#">Export List</a>
+                                <a class="dropdown-item" href="#">Policies</a>
+                                <a class="dropdown-item" href="#">View Assets</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -57,18 +68,6 @@
                             <td>2829 Trainer Avenue Peoria, IL 61602 </td>
                             <td>29-03-2018</td>
                             <td>$162,700</td>
-                            <td>
-                                <div class="dropdown">
-                                    <a class="btn btn-outline-primary dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                        <i class="fa fa-ellipsis-h"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" href="#"><i class="fa fa-eye"></i> View</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="fa fa-trash"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
                         </tr>
                         <tr>
                             <td class="table-plus">Andrea J. Cagle</td>
@@ -167,8 +166,9 @@
         @include('include.footer')
     </div>
 </div>
+
 @include('include.script')
-<script src="{{URL::asset('assets/"src/plugins/datatables/media/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{URL::asset('assets/src/plugins/datatables/media/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{URL::asset('assets/src/plugins/datatables/media/js/dataTables.bootstrap4.js')}}"></script>
 <script src="{{URL::asset('assets/src/plugins/datatables/media/js/dataTables.responsive.js')}}"></script>
 <script src="{{URL::asset('assets/src/plugins/datatables/media/js/responsive.bootstrap4.js')}}"></script>
