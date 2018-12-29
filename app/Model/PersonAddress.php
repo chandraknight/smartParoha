@@ -8,6 +8,19 @@ class PersonAddress extends Model
 {
     //
     protected $fillable=[
-        'person_id','country','state','district','muncipality','ward','village','tole','house','address_type'
+        'person_id',
+        'country',
+        'state',
+        'district',
+        'muncipality',
+        'ward',
+        'village',
+        'tole',
+        'house',
+        'address_type'
     ];
+
+    public function person(){
+        return $this -> belongsTo('App\Model\Person');
+    }
 }

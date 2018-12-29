@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -22,4 +22,17 @@ class Person extends Model
         'photo',
         'user_id'
     ];
+
+    public function addressDetails(){
+        return $this -> hasMany('App\Model\PersonAddress');
+    }
+    public function familyDetails(){
+        return $this -> hasMany('App\Model\PersonFamilies');
+    }
+    public function educationDetails(){
+        return $this -> hasMany('App\Model\PersonEducation');
+    }
+    public function languageDetails(){
+        return $this -> hasMany('App\Model\PersonLanguage');
+    }
 }

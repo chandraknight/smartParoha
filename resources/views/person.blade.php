@@ -139,7 +139,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Marital Status :</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="marital">
                                             <option value="married">Married</option>
                                             <option value="unmarried">Unmarried</option>
                                             <option value="divorced">Divorced</option>
@@ -292,29 +292,31 @@
                         <!-- Step 3 -->
                         <h5>Family Info</h5>
                         <section>
-                            <div class="row">
-<<<<<<< HEAD
-                                <div id="family-info">
+                            <div id="family-info">
+                                <div class="row">
                                     <div class="col-md-3" >
                                         <div class="form-group">
                                             <label>Person :</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="personname[]">
                                                 <option>Normal</option>
                                                 <option>Difficult</option>
                                                 <option>Hard</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Related Person Id :</label>
-                                            <input type="text" class="form-control" name="related_person_citizen">
+                                            <input type="text" class="form-control" name="relatedid[]">
                                         </div>
                                     </div>
+
+
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Relation Type :</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name='relationship_type[]'>
                                                 <option>Father</option>
                                                 <option>Mother</option>
                                                 <option>Son</option>
@@ -324,36 +326,6 @@
                                                 <option>Daughter In Law</option>
                                             </select>
                                         </div>
-=======
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Person :</label>
-                                        <select class="form-control" name="person[]">
-                                            <option>Normal</option>
-                                            <option>Difficult</option>
-                                            <option>Hard</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Related Person Id :</label>
-                                        <input type="text" class="form-control" name="related_person_citizen[]">
-                                    </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Relation Type :</label>
-                                        <select class="form-control" name='relationship_type[]'>
-                                            <option>Father</option>
-                                            <option>Mother</option>
-                                            <option>Son</option>
-                                            <option>Daughter</option>
-                                            <option>Grand Father</option>
-                                            <option>Grand Mother</option>
-                                            <option>Daughter In Law</option>
-                                        </select>
->>>>>>> 9c52e3394381415a33cbc82de630019512a33b42
                                     </div>
                                     <div class="col-md-2">
                                         <div class="form-group">
@@ -365,7 +337,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </section>
                         <!-- Step 4 -->
