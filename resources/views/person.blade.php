@@ -292,45 +292,48 @@
                         <h5>Family Info</h5>
                         <section>
                             <div class="row">
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Person :</label>
-                                        <select class="form-control">
-                                            <option>Normal</option>
-                                            <option>Difficult</option>
-                                            <option>Hard</option>
-                                        </select>
+                                <div id="family-info">
+                                    <div class="col-md-3" >
+                                        <div class="form-group">
+                                            <label>Person :</label>
+                                            <select class="form-control">
+                                                <option>Normal</option>
+                                                <option>Difficult</option>
+                                                <option>Hard</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Related Person Id :</label>
-                                        <input type="text" class="form-control" name="related_person_citizen">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>Related Person Id :</label>
+                                            <input type="text" class="form-control" name="related_person_citizen">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-3">
-                                    <div class="form-group">
-                                        <label>Relation Type :</label>
-                                        <select class="form-control">
-                                            <option>Father</option>
-                                            <option>Mother</option>
-                                            <option>Son</option>
-                                            <option>Daughter</option>
-                                            <option>Grand Father</option>
-                                            <option>Grand Mother</option>
-                                            <option>Daughter In Law</option>
-                                        </select>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Relation Type :</label>
+                                            <select class="form-control">
+                                                <option>Father</option>
+                                                <option>Mother</option>
+                                                <option>Son</option>
+                                                <option>Daughter</option>
+                                                <option>Grand Father</option>
+                                                <option>Grand Mother</option>
+                                                <option>Daughter In Law</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Add More</label>
-                                        <a href="" class="pull-right btn btn-primary btn-md add-more-click"
-                                           rel="content-y"
-                                           role="button"><i class="fa fa-plus-circle"></i></a>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Add More</label>
+                                            <a href="" class="pull-right btn btn-primary btn-md add-more-click"
+                                               rel="content-y"
+                                               role="button" id="add-more"><i class="fa fa-plus-circle"></i></a>
 
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
                         </section>
                         <!-- Step 4 -->
@@ -470,6 +473,11 @@
             $('#success-modal').modal('show');
         }
     });
+</script>
+<script>
+    $(document).ready(){
+
+    }
 </script>
 </body>
 </html>
