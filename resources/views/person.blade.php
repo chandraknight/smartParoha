@@ -46,7 +46,8 @@
                      <p class="mb-30 font-14">jQuery Step wizard</p>
                  </div>--}}
                 <div class="wizard-content">
-                    <form class="tab-wizard wizard-circle wizard vertical">
+                    <form class="tab-wizard wizard-circle wizard vertical" action="{{Route('savePerson')}}" method="post">
+                        @csrf
                         <h5>Personal Info</h5>
                         <section>
                             <div class="row">
@@ -86,16 +87,16 @@
                                 <div class="col-md-6 col-sm-12">
                                     <label>Gender</label>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderMale" name="gender" class="custom-control-input">
+                                        <input type="radio" id="genderMale" name="gender" value="male" class="custom-control-input">
                                         <label class="custom-control-label" for="genderMale">Male</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="genderFemale" name="gender"
-                                               class="custom-control-input">
+                                               class="custom-control-input" value="female">
                                         <label class="custom-control-label" for="genderFemale">Female</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderOther" name="gender" class="custom-control-input">
+                                        <input type="radio" id="genderOther" name="gender" class="custom-control-input" value="other">
                                         <label class="custom-control-label" for="genderOther">Others</label>
                                     </div>
                                 </div>
@@ -103,17 +104,17 @@
                                     <label>Religion</label>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="religionHindu" name="religion"
-                                               class="custom-control-input">
+                                               class="custom-control-input" value="hindu">
                                         <label class="custom-control-label" for="religionHindu">Hindu</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="religionMuslim" name="religion"
-                                               class="custom-control-input">
+                                               class="custom-control-input" value="muslim">
                                         <label class="custom-control-label" for="religionMuslim">Muslim</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="religionOther" name="religion"
-                                               class="custom-control-input">
+                                               class="custom-control-input" value="other">
                                         <label class="custom-control-label" for="religionOther">Others</label>
                                     </div>
                                 </div>
@@ -175,13 +176,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" name="country">
+                                        <input type="text" class="form-control" name="country[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input type="text" class="form-control" name="state">
+                                        <input type="text" class="form-control" name="state[]">
                                     </div>
                                 </div>
                             </div>
@@ -189,13 +190,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>District</label>
-                                        <input type="text" class="form-control" name="district">
+                                        <input type="text" class="form-control" name="district[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Municipality / VDC </label>
-                                        <input type="text" class="form-control" name="municipality">
+                                        <input type="text" class="form-control" name="municipality[]">
                                     </div>
                                 </div>
                             </div>
@@ -203,13 +204,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ward</label>
-                                        <input type="text" class="form-control" name="ward">
+                                        <input type="text" class="form-control" name="ward[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Village</label>
-                                        <input type="text" class="form-control" name="village">
+                                        <input type="text" class="form-control" name="village[]">
                                     </div>
                                 </div>
                             </div>
@@ -217,14 +218,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Tole</label>
-                                        <input type="text" class="form-control" name="tole">
+                                        <input type="text" class="form-control" name="tole[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>House</label>
-                                        <input type="text" class="form-control" name="house">
-                                        <input type="hidden" class="form-control" name="type" value="permanent">
+                                        <input type="text" class="form-control" name="house[]">
+                                        <input type="hidden" class="form-control" name="type[]" value="permanent">
                                     </div>
                                 </div>
                             </div>
@@ -234,13 +235,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" name="country">
+                                        <input type="text" class="form-control" name="country[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input type="text" class="form-control" name="state">
+                                        <input type="text" class="form-control" name="state[]">
                                     </div>
                                 </div>
                             </div>
@@ -248,13 +249,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>District</label>
-                                        <input type="text" class="form-control" name="district">
+                                        <input type="text" class="form-control" name="district[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Municipality / VDC </label>
-                                        <input type="text" class="form-control" name="municipality">
+                                        <input type="text" class="form-control" name="municipality[]">
                                     </div>
                                 </div>
                             </div>
@@ -262,13 +263,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ward</label>
-                                        <input type="text" class="form-control" name="ward">
+                                        <input type="text" class="form-control" name="ward[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Village</label>
-                                        <input type="text" class="form-control" name="village">
+                                        <input type="text" class="form-control" name="village[]">
                                     </div>
                                 </div>
                             </div>
@@ -276,14 +277,14 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Tole</label>
-                                        <input type="text" class="form-control" name="tole">
+                                        <input type="text" class="form-control" name="tole[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>House</label>
-                                        <input type="text" class="form-control" name="house">
-                                        <input type="hidden" class="form-control" name="type" value="temporart">
+                                        <input type="text" class="form-control" name="house[]">
+                                        <input type="hidden" class="form-control" name="type[]" value="temp">
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +296,7 @@
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Person :</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="person[]">
                                             <option>Normal</option>
                                             <option>Difficult</option>
                                             <option>Hard</option>
@@ -305,13 +306,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Related Person Id :</label>
-                                        <input type="text" class="form-control" name="related_person_citizen">
+                                        <input type="text" class="form-control" name="related_person_citizen[]">
                                     </div>
                                 </div>
                                 <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Relation Type :</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name='relationship_type[]'>
                                             <option>Father</option>
                                             <option>Mother</option>
                                             <option>Son</option>
@@ -340,13 +341,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Degree :</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="degree[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Board / Univercity</label>
-                                        <input type="text" class="form-control">
+                                        <input type="text" class="form-control" name="university[]">
                                     </div>
                                 </div>
                             </div>
@@ -354,14 +355,14 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Year of Start</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="year_of_start[]">
                                         </div>
 
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Year of Completion</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="ÿear_of_completion[]">
                                         </div>
                                     </div>
                                 </div>
@@ -369,13 +370,13 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Stream</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="stream[]">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>College</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" name="college[]">
                                         </div>
                                     </div>
                                 </div>
@@ -393,13 +394,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Language Known :</label>
-                                        <input type="text" class="form-control" name="language">
+                                        <input type="text" class="form-control" name="language[]">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Can Read ?</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="can_read[]">
                                             <option>Yes</option>
                                             <option>No</option>
 
@@ -409,7 +410,7 @@
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Can Wright ?:</label>
-                                        <select class="form-control">
+                                        <select class="form-control" name="can_write[]">
                                             <option>Yes</option>
                                             <option>No</option>
 
@@ -455,6 +456,89 @@
 @include('include.script')
 <script src="{{URL::asset('assets/src/plugins/jquery-steps/build/jquery.steps.js')}}"></script>
 <script>
+    $(document).ready(function() {
+        // The maximum number of options
+        var MAX_OPTIONS = 5;
+
+        $('#surveyForm')
+            .bootstrapValidator({
+                feedbackIcons: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+                    question: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The question required and cannot be empty'
+                            }
+                        }
+                    },
+                    'option[]': {
+                        validators: {
+                            notEmpty: {
+                                message: 'The option required and cannot be empty'
+                            },
+                            stringLength: {
+                                max: 100,
+                                message: 'The option must be less than 100 characters long'
+                            }
+                        }
+                    }
+                }
+            })
+
+            // Add button click handler
+            .on('click', '.addButton', function() {
+                var $template = $('#optionTemplate'),
+                    $clone    = $template
+                        .clone()
+                        .removeClass('hide')
+                        .removeAttr('id')
+                        .insertBefore($template),
+                    $option   = $clone.find('[name="option[]"]');
+
+                // Add new field
+                $('#surveyForm').bootstrapValidator('addField', $option);
+            })
+
+            // Remove button click handler
+            .on('click', '.removeButton', function() {
+                var $row    = $(this).parents('.form-group'),
+                    $option = $row.find('[name="option[]"]');
+
+                // Remove element containing the option
+                $row.remove();
+
+                // Remove field
+                $('#surveyForm').bootstrapValidator('removeField', $option);
+            })
+
+            // Called after adding new field
+            .on('added.field.bv', function(e, data) {
+                // data.field   --> The field name
+                // data.element --> The new field element
+                // data.options --> The new field options
+
+                if (data.field === 'option[]') {
+                    if ($('#surveyForm').find(':visible[name="option[]"]').length >= MAX_OPTIONS) {
+                        $('#surveyForm').find('.addButton').attr('disabled', 'disabled');
+                    }
+                }
+            })
+
+            // Called after removing the field
+            .on('removed.field.bv', function(e, data) {
+                if (data.field === 'option[]') {
+                    if ($('#surveyForm').find(':visible[name="option[]"]').length < MAX_OPTIONS) {
+                        $('#surveyForm').find('.addButton').removeAttr('disabled');
+                    }
+                }
+            });
+    });
+</script>
+<script>
     $(".tab-wizard").steps({
         headerTag: "h5",
         bodyTag: "section",
@@ -467,7 +551,8 @@
             $('.steps .current').prevAll().addClass('disabled');
         },
         onFinished: function (event, currentIndex) {
-            $('#success-modal').modal('show');
+           $('form').submit();
+           $('#success-modal').modal('show');
         }
     });
 </script>
