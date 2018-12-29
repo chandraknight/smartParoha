@@ -6,5 +6,23 @@ use Illuminate\Http\Request;
 
 class PersonsController extends Controller
 {
+<<<<<<< HEAD
 
+=======
+    //
+    public function savePerson(Request $request){
+//        dd($request);
+
+      /*  $requestData = collect($request->only('names', 'emails', 'occupations'));
+
+        $contacts = $requestData->transpose()->map(function ($contactData) {
+            return new Contact([
+                'name' => $contactData[0],
+                'email' => $contactData[1],
+                'occupation' => $contactData[2],
+            ]);
+        });*/
+
+    }
+>>>>>>> 9c52e3394381415a33cbc82de630019512a33b42
 }

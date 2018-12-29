@@ -20,3 +20,7 @@ Route::get('/person',function(){
 Route::get('/person-list',function(){
     return view('person-list');
 })->name('list-person');
+Route::post('/person-save',[
+    'uses'=>'PersonsController@savePerson',
+    'as'=>'savePerson'
+]);

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Model;
+namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PersonLanguage extends Model
+class PersonId extends Model
 {
     //
     protected $fillable=[

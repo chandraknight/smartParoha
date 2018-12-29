@@ -25,12 +25,11 @@ class CreatePeopleTable extends Migration
             $table->string('nationality')->nullable();
             $table->string('caste')->nullable();
             $table->enum('marital_status',['yes','no'])->default('no');
-            $table->lineString('email')->nullable();
+            $table->text('email')->nullable();
             $table->string('contact')->nullable();
             $table->string('photo')->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
-
         });
     }
 
