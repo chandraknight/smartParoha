@@ -50,6 +50,7 @@
                         @csrf
                         <h5>Personal Info</h5>
                         <section>
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -79,7 +80,7 @@
                                     <div class="form-group">
                                         <label>Date of Birth :</label>
                                         <input type="text" name="DOB_en" class="form-control date-picker"
-                                               placeholder="Select Date">
+                                               placeholder="Select Date" data-date-format="yyyy-mm-dd">
                                     </div>
                                 </div>
                             </div>
@@ -136,18 +137,26 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Marital Status :</label>
                                         <select class="form-control" name="marital">
-                                            <option value="married">Married</option>
-                                            <option value="unmarried">Unmarried</option>
-                                            <option value="divorced">Divorced</option>
-                                            <option value="widow">Widow</option>
+                                            <option value="Married">Married</option>
+                                            <option value="Unmarried">Unmarried</option>
+                                            <option value="Divorced">Divorced</option>
+                                            <option value="Widow">Widow</option>
+                                            <option value="Widower">Widower</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Contact :</label>
+                                        <input type="text" class="form-control" name="contact"
+                                               placeholder="Phone Number">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email :</label>
                                         <input type="email" class="form-control" name="email"
@@ -167,7 +176,46 @@
                                 </div>
                             </div>
                         </section>
-                        <!-- Step 2 -->
+                        {{--step 2--}}
+                        <h5>Identity Info</h5>
+                        <section>
+                            <div id="identity-info">
+                                <div id="info">
+                                <div class="row">
+
+                                    <div class="col-md-3" >
+                                        <div class="form-group">
+                                            <label>Identity Number</label>
+                                            <input type="text" class="form-control" name="idnumber[]">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>ID Type :</label>
+                                            <select class="form-control" name='idtype[]'>
+                                                <option value="citizenship">Citizenship</option>
+                                                <option value="pasport">PassPort</option>
+                                                <option value="voterid">Voter ID</option>
+                                                <option value="other">Other</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Add More</label>
+                                            <a  class="pull-right btn btn-primary btn-md add-more-click"
+                                               rel="content-y"
+                                               role="button" id="add-identity"><i class="fa fa-plus-circle"></i></a>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Step 3 -->
                         <h5>Address </h5>
                         <section>
                             <h3>Permanent Address</h3>
@@ -289,7 +337,7 @@
                                 </div>
                             </div>
                         </section>
-                        <!-- Step 3 -->
+                        <!-- Step 4 -->
                         <h5>Family Info</h5>
                         <section>
                             <div id="family-info">
@@ -339,14 +387,24 @@
                                 </div>
                             </div>
                         </section>
-                        <!-- Step 4 -->
+                        <!-- Step 5 -->
                         <h5>Education </h5>
                         <section>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Degree :</label>
-                                        <input type="text" class="form-control" name="degree[]">
+                                        <select class="form-control" name="degree[]">
+                                            <option value="Below SLC/SEE">Below SLC/SEE</option>
+                                            <option value="SLC">SLC/SEE</option>
+                                            <option value="Intermediate">Intermediate</option>
+                                            <option value="Bachelor">Bachelor</option>
+                                            <option value="Master">Master</option>
+                                            <option value="MPhil">MPhil</option>
+                                            <option value="PhD">PhD</option>
+                                            <option value="Vocational Training">Vocational Training</option>
+                                            <option value="Others">Others</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
@@ -367,7 +425,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label>Year of Completion</label>
-                                            <input type="text" class="form-control" name="ÿear_of_completion[]">
+                                            <input type="text" class="form-control" name="year_of_completion[]">
                                         </div>
                                     </div>
                                 </div>
@@ -392,7 +450,7 @@
 
                             </div>
                         </section>
-                        <!-- Step 5 -->
+                        <!-- Step 6 -->
                         <h5>Language </h5>
                         <section>
                             <div class="row">
@@ -414,7 +472,7 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label>Can Wright ?:</label>
+                                        <label>Can Write?:</label>
                                         <select class="form-control" name="can_write[]">
                                             <option>Yes</option>
                                             <option>No</option>
@@ -562,9 +620,23 @@
     });
 </script>
 <script>
-    $(document).ready(){
+    $(document).ready(function(){
+        var i = 1;
+        $("#add-identity").click(function(){
+            console.log("button clicked");
+            var ht = $('#info' + i).html("<div class=\"col-md-3\"><div class=\"form-group\"><label>Identity Number"+
+                "</label><input type=\"text\" class=\"form-control\" name=\"idnumber[]\"></div></div>"+
+                "<div class=\"col-md-3\"><div class=\"form-group\"><label>ID Type :</label>"+
+                "<select class=\"form-control\" name='idtype[]'><option value=\"citizenship\">Citizenship</option>"+
+                "<option value=\"pasport\">PassPort</option><option value=\"voterid\">Voter ID</option>"+
+                "<option value=\"other\">Other</option></select></div></div>");
+            console.log(ht);
+            $("#identity-info").append('<div id="info'+i+'">');
+            i++;
+        });
+    });
 
-    }
+
 </script>
 </body>
 </html>

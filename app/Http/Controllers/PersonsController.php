@@ -7,13 +7,15 @@ use App\Model\PersonAddress;
 use App\Model\PersonEducation;
 use App\Model\PersonFamilies;
 use App\Model\PersonLanguage;
+use App\Model\PersonId;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PersonsController extends Controller
 {
 
     public function savePerson(Request $request){
-     dd($request);
+//     dd($request);
      $person = new Person();
      $person->first_name = $request->first_name;
      $person->middle_name = $request->middle_name;
@@ -23,8 +25,9 @@ class PersonsController extends Controller
      $person->religion = $request->religion;
      $person->nationality = $request->nationality;
      $person->caste = $request->caste;
-     $person->marital = $request->marital;
+     $person->marital_status = $request->marital;
      $person->email = $request->email;
+//     $person->user_id = Auth::user()->id;
 
     if(isset($request->photo)){
         $filenamewithext = $request->file('photo')->getClientOriginalName();
@@ -34,6 +37,7 @@ class PersonsController extends Controller
         $path = $request->file('photo')->storeAs('/personphoto/',$storename);
         $person->photo = $storename;
     }
+//    dd($person);
     if($person->save()){
         $requestData = collect($request->only(
             'country','state','district','municipality','ward','village','tole','house','type'
@@ -71,6 +75,7 @@ class PersonsController extends Controller
             'degree','university','year_of_start','year_of_completion','stream','college'
         ));
         $education = $requestData->transpose()->map(function($educationData){
+//            dd($educationData);
             return new PersonEducation([
                 'degree'=>$educationData[0],
                 'board_university'=>$educationData[1],
@@ -93,6 +98,19 @@ class PersonsController extends Controller
             ]);
         });
         $person->languageDetails()->saveMany($language);
+
+        $requestData = collect($request->only(
+            'idnumber','idtype'
+        ));
+        $ids = $requestData->transpose()->map(function($idData){
+            return new PersonId([
+                'id_no'=>$idData[0],
+                'id_type'=>$idData[1]
+            ]);
+        });
+        $person->identityDetails()->saveMany($ids);
+
+        return redirect()->route('add-person')->with('success','Person Added Successfully');
     }
 
 

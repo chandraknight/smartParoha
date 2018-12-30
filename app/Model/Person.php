@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
+    protected $table = 'people';
     protected $fillable = [
         'first_name',
         'middle_name',
@@ -34,5 +35,9 @@ class Person extends Model
     }
     public function languageDetails(){
         return $this -> hasMany('App\Model\PersonLanguage');
+    }
+
+    public function identityDetails(){
+        return $this -> hasMany('App\Model\PersonId');
     }
 }

@@ -55,7 +55,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @forelse(\App\Person::all() as $person)
+                        @forelse(\App\Model\Person::all() as $person)
                             <tr>
                                 <td class="table-plus">{{$person->id}}</td>
                                 <td>{{$person->first_name}} {{$person->middle_name}} {{$person->last_name}}</td>
