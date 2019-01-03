@@ -46,7 +46,9 @@
                      <p class="mb-30 font-14">jQuery Step wizard</p>
                  </div>--}}
                 <div class="wizard-content">
-                    <form class="tab-wizard wizard-circle wizard vertical" action="{{Route('savePerson')}}" method="post">
+
+                    <form class="tab-wizard wizard-circle wizard vertical" action="{{Route('savePerson')}}"
+                          method="post">
                         @csrf
                         <h5>Personal Info</h5>
                         <section>
@@ -88,7 +90,8 @@
                                 <div class="col-md-6 col-sm-12">
                                     <label>Gender</label>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderMale" name="gender" value="male" class="custom-control-input">
+                                        <input type="radio" id="genderMale" name="gender" value="male"
+                                               class="custom-control-input">
                                         <label class="custom-control-label" for="genderMale">Male</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
@@ -97,7 +100,8 @@
                                         <label class="custom-control-label" for="genderFemale">Female</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderOther" name="gender" class="custom-control-input" value="other">
+                                        <input type="radio" id="genderOther" name="gender" class="custom-control-input"
+                                               value="other">
                                         <label class="custom-control-label" for="genderOther">Others</label>
                                     </div>
                                 </div>
@@ -179,38 +183,47 @@
                         {{--step 2--}}
                         <h5>Identity Info</h5>
                         <section>
+<<<<<<< HEAD
                             <div id="identity-info">
                                 <div id="info0">
                                 <div class="row">
+=======
+>>>>>>> 63bde529be64768a758cfe43360d2641de54c1d5
 
-                                    <div class="col-md-3" >
-                                        <div class="form-group">
-                                            <label>Identity Number</label>
-                                            <input type="text" class="form-control" name="idnumber[]">
+                            <div id="info">
+                                <div class="identity-info">
+                                    <div class="row ">
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Identity Number</label>
+                                                <input type="text" class="form-control" name="idnumber[]">
+                                            </div>
                                         </div>
+
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ID Type :</label>
+                                                <select class="form-control" name='idtype[]'>
+                                                    <option value="citizenship">Citizenship</option>
+                                                    <option value="pasport">PassPort</option>
+                                                    <option value="voterid">Voter ID</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
                                     </div>
 
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>ID Type :</label>
-                                            <select class="form-control" name='idtype[]'>
-                                                <option value="citizenship">Citizenship</option>
-                                                <option value="pasport">PassPort</option>
-                                                <option value="voterid">Voter ID</option>
-                                                <option value="other">Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Add More</label>
-                                            <a  class="pull-right btn btn-primary btn-md add-more-click"
-                                               rel="content-y"
-                                               role="button" id="add-identity"><i class="fa fa-plus-circle"></i></a>
-
-                                        </div>
-                                    </div>
                                 </div>
+                                <div class="col-md-2">
+                                    <div class="form-group">
+
+                                        <a class="pull-right btn btn-primary btn-md add-more-click"
+                                            id="addrowIdentity"><i
+                                                class="fa fa-plus-circle"></i> Add</a>
+
+                                    </div>
                                 </div>
                             </div>
                         </section>
@@ -342,7 +355,7 @@
                         <section>
                             <div id="family-info">
                                 <div class="row">
-                                    <div class="col-md-3" >
+                                    <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Person :</label>
                                             <select class="form-control" name="personname[]">
@@ -414,39 +427,39 @@
                                     </div>
                                 </div>
                             </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Year of Start</label>
-                                            <input type="text" class="form-control" name="year_of_start[]">
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Year of Start</label>
+                                        <input type="text" class="form-control" name="year_of_start[]">
+                                    </div>
 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Year of Completion</label>
-                                            <input type="text" class="form-control" name="year_of_completion[]">
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Year of Completion</label>
+                                        <input type="text" class="form-control" name="year_of_completion[]">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Stream</label>
-                                            <input type="text" class="form-control" name="stream[]">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>College</label>
-                                            <input type="text" class="form-control" name="college[]">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Stream</label>
+                                        <input type="text" class="form-control" name="stream[]">
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>College</label>
+                                        <input type="text" class="form-control" name="college[]">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="pull-right col-md-2">
-                                    <a href="" class="pull-right btn btn-primary btn-md add-more-click"
-                                       rel="content-y"
-                                       role="button"><i class="fa fa-plus-circle"></i> Add</a>
+                                <a href="" class="pull-right btn btn-primary btn-md add-more-click"
+                                   rel="content-y"
+                                   role="button"><i class="fa fa-plus-circle"></i> Add</a>
 
                             </div>
                         </section>
@@ -513,94 +526,13 @@
             </div>
             <!-- success Popup html End -->
         </div>
+
         @include('include.footer')
     </div>
 </div>
 @include('include.script')
 <script src="{{URL::asset('assets/src/plugins/jquery-steps/build/jquery.steps.js')}}"></script>
-<script>
-    $(document).ready(function() {
-        // The maximum number of options
-        var MAX_OPTIONS = 5;
 
-        $('#surveyForm')
-            .bootstrapValidator({
-                feedbackIcons: {
-                    valid: 'glyphicon glyphicon-ok',
-                    invalid: 'glyphicon glyphicon-remove',
-                    validating: 'glyphicon glyphicon-refresh'
-                },
-                fields: {
-                    question: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The question required and cannot be empty'
-                            }
-                        }
-                    },
-                    'option[]': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The option required and cannot be empty'
-                            },
-                            stringLength: {
-                                max: 100,
-                                message: 'The option must be less than 100 characters long'
-                            }
-                        }
-                    }
-                }
-            })
-
-            // Add button click handler
-            .on('click', '.addButton', function() {
-                var $template = $('#optionTemplate'),
-                    $clone    = $template
-                        .clone()
-                        .removeClass('hide')
-                        .removeAttr('id')
-                        .insertBefore($template),
-                    $option   = $clone.find('[name="option[]"]');
-
-                // Add new field
-                $('#surveyForm').bootstrapValidator('addField', $option);
-            })
-
-            // Remove button click handler
-            .on('click', '.removeButton', function() {
-                var $row    = $(this).parents('.form-group'),
-                    $option = $row.find('[name="option[]"]');
-
-                // Remove element containing the option
-                $row.remove();
-
-                // Remove field
-                $('#surveyForm').bootstrapValidator('removeField', $option);
-            })
-
-            // Called after adding new field
-            .on('added.field.bv', function(e, data) {
-                // data.field   --> The field name
-                // data.element --> The new field element
-                // data.options --> The new field options
-
-                if (data.field === 'option[]') {
-                    if ($('#surveyForm').find(':visible[name="option[]"]').length >= MAX_OPTIONS) {
-                        $('#surveyForm').find('.addButton').attr('disabled', 'disabled');
-                    }
-                }
-            })
-
-            // Called after removing the field
-            .on('removed.field.bv', function(e, data) {
-                if (data.field === 'option[]') {
-                    if ($('#surveyForm').find(':visible[name="option[]"]').length < MAX_OPTIONS) {
-                        $('#surveyForm').find('.addButton').removeAttr('disabled');
-                    }
-                }
-            });
-    });
-</script>
 <script>
     $(".tab-wizard").steps({
         headerTag: "h5",
@@ -614,12 +546,13 @@
             $('.steps .current').prevAll().addClass('disabled');
         },
         onFinished: function (event, currentIndex) {
-           $('form').submit();
-           $('#success-modal').modal('show');
+            $('form').submit();
+            $('#success-modal').modal('show');
         }
     });
 </script>
 <script>
+<<<<<<< HEAD
     $(document).ready(function(){
         var i = 1;
         $("#add-identity").click(function(){
@@ -633,9 +566,54 @@
             console.log(ht);
             $("#identity-info").append('<div id="info'+i+'">');
             i++;
-        });
-    });
+=======
+    $(document).ready(function () {
+        var counter = 0;
 
+        $("#addrowIdentity").on("click", function () {
+            var newRow = $("<div class='row'>");
+            var cols = "";
+
+            cols += '<div class="col-md-3" ><div class="form-group">' +
+                '<label>Identity Number</label>' +
+                '<input type="text" class="form-control" name="idnumber[]">' +
+                '</div>' +
+                '</div>';
+
+            cols += '<div class="col-md-3">' +
+                '<div class="form-group">' +
+                '<label>ID Type :</label>' +
+                '<select class="form-control" name="idtype[]">' +
+                '<option value="citizenship">Citizenship</option>' +
+                '<option value="pasport">PassPort</option>' +
+                '<option value="voterid">Voter ID</option>' +
+                '<option value="other">Other</option>' +
+                '</select>' +
+                '</div>' +
+                '</div>';
+
+            cols += '<div class="col-md-2">' +
+                '<div class="form-group">' +
+                '<label>Add More</label>' +
+                '<a  class="pull-right btn btn-primary btn-md add-more-click ibtnDel"' +
+                'rel="content-y"' +
+                'role="button" ><i class="fa fa-minus-circle"></i></a>' +
+                ' </div>' +
+                '</div>'   ;
+            newRow.append(cols);
+            $("div.identity-info").append(newRow);
+            counter++;
+>>>>>>> 63bde529be64768a758cfe43360d2641de54c1d5
+        });
+
+
+        $("div.identity-info").on("click", ".ibtnDel", function (event) {
+            $(this).closest(".row").remove();
+            counter -= 1
+        });
+
+
+    });
 
 </script>
 </body>
