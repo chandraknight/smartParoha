@@ -24,3 +24,20 @@ Route::post('/person-save',[
     'uses'=>'PersonsController@savePerson',
     'as'=>'savePerson'
 ]);
+Route::get('/person-edit/{id}',[
+    'uses'=>'PersonsController@editPerson',
+    'as'=>'editPerson'
+]);
+Route::post('/person-update',[
+    'uses'=>'PersonsController@updatePerson',
+    'as'=>'updatePerson'
+]);
+Route::get('/person-delete/{id}',[
+    'uses'=>'PersonsController@deletePerson',
+    'as'=>'deletePerson'
+]);
+
+Route::get('/person-view/{id}',[
+    'uses'=>'PersonsController@viewPerson',
+    'as'=>'viewPerson'
+]);

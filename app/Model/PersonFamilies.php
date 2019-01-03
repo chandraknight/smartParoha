@@ -10,4 +10,8 @@ class PersonFamilies extends Model
     protected $fillable=[
         'person_id','related_persion_id','related_person_citizenship','relationship_type'
     ];
+
+    public function person(){
+        return $this -> belongsTo('App\Model\Person','person_id');
+    }
 }

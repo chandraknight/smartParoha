@@ -46,8 +46,9 @@
                      <p class="mb-30 font-14">jQuery Step wizard</p>
                  </div>--}}
                 <div class="wizard-content">
-                    <form class="tab-wizard wizard-circle wizard vertical" action="{{Route('savePerson')}}" method="post">
+                    <form class="tab-wizard wizard-circle wizard vertical" action="{{route('updatePerson')}}" method="post">
                         @csrf
+                        <input type="hidden" name="id" value="{{$person->id}}">
                         <h5>Personal Info</h5>
                         <section>
 
@@ -56,14 +57,14 @@
                                     <div class="form-group">
                                         <label>First Name : *</label>
                                         <input type="text" class="form-control" name="first_name"
-                                               placeholder="First Name">
+                                               value="{{$person->first_name}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Middle Name :</label>
                                         <input type="text" class="form-control" name="middle_name"
-                                               placeholder="Middle Name">
+                                               value="{{$person->middle_name}}">
                                     </div>
                                 </div>
 
@@ -73,14 +74,14 @@
                                     <div class="form-group">
                                         <label>Last Name : * </label>
                                         <input type="text" class="form-control" name="last_name"
-                                               placeholder="Last Name">
+                                               value="{{$person->last_name}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Date of Birth :</label>
                                         <input type="text" name="DOB_en" class="form-control date-picker"
-                                               placeholder="Select Date" data-date-format="yyyy-mm-dd">
+                                              value="{{$person->DOB_en}}" data-date-format="yyyy-mm-dd">
                                     </div>
                                 </div>
                             </div>
@@ -88,34 +89,34 @@
                                 <div class="col-md-6 col-sm-12">
                                     <label>Gender</label>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderMale" name="gender" value="male" class="custom-control-input">
+                                        <input type="radio" id="genderMale" {{($person->gender == 'male')?'checked':''}} name="gender" value="male" class="custom-control-input">
                                         <label class="custom-control-label" for="genderMale">Male</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderFemale" name="gender"
+                                        <input type="radio" id="genderFemale" {{($person->gender == 'female')?'checked':''}} name="gender"
                                                class="custom-control-input" value="female">
                                         <label class="custom-control-label" for="genderFemale">Female</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="genderOther" name="gender" class="custom-control-input" value="other">
+                                        <input type="radio" id="genderOther" {{($person->gender == 'other')?'checked':''}} name="gender" class="custom-control-input" value="other">
                                         <label class="custom-control-label" for="genderOther">Others</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <label>Religion</label>
                                     <div class="custom-control custom-radio mb-5">
-                                        <input type="radio" id="religionHindu" name="religion"
+                                        <input type="radio" id="religionHindu" {{($person->religion == 'hindu')?'checked':''}} name="religion"
                                                class="custom-control-input" value="hindu">
                                         <label class="custom-control-label" for="religionHindu">Hindu</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="religionMuslim" name="religion"
-                                               class="custom-control-input" value="muslim">
+                                               class="custom-control-input" {{($person->religion == 'muslim')?'checked':''}} value="muslim">
                                         <label class="custom-control-label" for="religionMuslim">Muslim</label>
                                     </div>
                                     <div class="custom-control custom-radio mb-5">
                                         <input type="radio" id="religionOther" name="religion"
-                                               class="custom-control-input" value="other">
+                                               class="custom-control-input" {{($person->religion == 'other')?'checked':''}} value="other">
                                         <label class="custom-control-label" for="religionOther">Others</label>
                                     </div>
                                 </div>
@@ -126,13 +127,13 @@
                                     <div class="form-group">
                                         <label>Nationality :</label>
                                         <input type="text" class="form-control" name="nationality"
-                                               placeholder="Nationality">
+                                               value="{{$person->nationality}}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Caste :</label>
-                                        <input type="text" class="form-control" name="caste" placeholder="Caste">
+                                        <input type="text" class="form-control" name="caste" value="{{$person->caste}}">
                                     </div>
                                 </div>
                             </div>
@@ -141,11 +142,11 @@
                                     <div class="form-group">
                                         <label>Marital Status :</label>
                                         <select class="form-control" name="marital">
-                                            <option value="Married">Married</option>
-                                            <option value="Unmarried">Unmarried</option>
-                                            <option value="Divorced">Divorced</option>
-                                            <option value="Widow">Widow</option>
-                                            <option value="Widower">Widower</option>
+                                            <option value="Married" {{($person->marital_status == 'Married')?'checked':''}}>Married</option>
+                                            <option value="Unmarried" {{($person->marital_status == 'Unmarried')?'checked':''}}>Unmarried</option>
+                                            <option value="Divorced" {{($person->marital_status == 'Divorced')?'checked':''}}>Divorced</option>
+                                            <option value="Widow" {{($person->marital_status == 'Widow')?'checked':''}}>Widow</option>
+                                            <option value="Widower" {{($person->marital_status == 'Widower')?'checked':''}}>Widower</option>
                                         </select>
                                     </div>
                                 </div>
@@ -153,14 +154,14 @@
                                     <div class="form-group">
                                         <label>Contact :</label>
                                         <input type="text" class="form-control" name="contact"
-                                               placeholder="Phone Number">
+                                               value="{{$person->contact}}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Email :</label>
                                         <input type="email" class="form-control" name="email"
-                                               placeholder="email@email.com">
+                                               value="{{$person->email}}">
                                     </div>
                                 </div>
                             </div>
@@ -180,37 +181,42 @@
                         <h5>Identity Info</h5>
                         <section>
                             <div id="identity-info">
+
                                 <div id="info0">
-                                <div class="row">
-
-                                    <div class="col-md-3" >
-                                        <div class="form-group">
-                                            <label>Identity Number</label>
-                                            <input type="text" class="form-control" name="idnumber[]">
+                                    @foreach($person->identityDetails as $identity)
+                                    <div class="row">
+                                        <input type="hidden" value="{{$identity->id}}" name="identityid[]">
+                                        <div class="col-md-3" >
+                                            <div class="form-group">
+                                                <label>Identity Number</label>
+                                                <input type="text" class="form-control" value="{{$identity->id_no}}" name="idnumber[]">
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="col-md-3">
-                                        <div class="form-group">
-                                            <label>ID Type :</label>
-                                            <select class="form-control" name='idtype[]'>
-                                                <option value="citizenship">Citizenship</option>
-                                                <option value="pasport">PassPort</option>
-                                                <option value="voterid">Voter ID</option>
-                                                <option value="other">Other</option>
-                                            </select>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>ID Type :</label>
+                                                <select class="form-control" name='idtype[]'>
+                                                    <option value="citizenship" {{($identity->id_type == 'citizenship')?'selected':''}}>Citizenship</option>
+                                                    <option value="pasport" {{($identity->id_type == 'pasport')?'selected':''}}>PassPort</option>
+                                                    <option value="voterid" {{($identity->id_type == 'voterid')?'selected':''}}>Voter ID</option>
+                                                    <option value="other" {{($identity->id_type == 'other')?'selected':''}}>Other</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-2">
+
+                                    </div>@endforeach
+
+                                        <div class="col-md-2">
                                         <div class="form-group">
-                                            <label>Add More</label>
-                                            <a  class="pull-right btn btn-primary btn-md add-more-click"
-                                               rel="content-y"
-                                               role="button" id="add-identity"><i class="fa fa-plus-circle"></i></a>
+                                        <label>Add More</label>
+                                        <a  class="pull-right btn btn-primary btn-md add-more-click"
+                                        rel="content-y"
+                                        role="button" id="add-identity"><i class="fa fa-plus-circle"></i></a>
 
                                         </div>
-                                    </div>
-                                </div>
+                                        </div>
+
                                 </div>
                             </div>
                         </section>
@@ -220,17 +226,19 @@
                         <section>
                             <h3>Permanent Address</h3>
                             <hr/>
+                            @foreach($person->addressDetails->where('address_type','permanent') as $address)
+                                <input type="hidden" name="addressid[]" value="{{$address->id}}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" name="country[]">
+                                        <input type="text" class="form-control" value="{{$address->country}}" name="country[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input type="text" class="form-control" name="state[]">
+                                        <input type="text" class="form-control" value="{{$address->state}}" name="state[]">
                                     </div>
                                 </div>
                             </div>
@@ -238,13 +246,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>District</label>
-                                        <input type="text" class="form-control" name="district[]">
+                                        <input type="text" class="form-control" value="{{$address->district}}" name="district[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Municipality / VDC </label>
-                                        <input type="text" class="form-control" name="municipality[]">
+                                        <input type="text" class="form-control" value="{{$address->muncipality}}" name="municipality[]">
                                     </div>
                                 </div>
                             </div>
@@ -252,13 +260,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ward</label>
-                                        <input type="text" class="form-control" name="ward[]">
+                                        <input type="text" class="form-control" value="{{$address->ward}}" name="ward[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Village</label>
-                                        <input type="text" class="form-control" name="village[]">
+                                        <input type="text" class="form-control" value="{{$address->village}}" name="village[]">
                                     </div>
                                 </div>
                             </div>
@@ -266,30 +274,33 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Tole</label>
-                                        <input type="text" class="form-control" name="tole[]">
+                                        <input type="text" class="form-control" value="{{$address->tole}}" name="tole[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>House</label>
-                                        <input type="text" class="form-control" name="house[]">
+                                        <input type="text" class="form-control" value="{{$address->house}}" name="house[]">
                                         <input type="hidden" class="form-control" name="type[]" value="permanent">
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                             <h3>Temporary Address</h3>
                             <hr/>
+                            @foreach($person->addressDetails->where('address_type','current') as $address)
+                                <input value="{{$address->id}}" name="addressid[]" type="hidden">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Country</label>
-                                        <input type="text" class="form-control" name="country[]">
+                                        <input type="text" class="form-control" value="{{$address->country}}" name="country[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>State</label>
-                                        <input type="text" class="form-control" name="state[]">
+                                        <input type="text" class="form-control" value="{{$address->state}}" name="state[]">
                                     </div>
                                 </div>
                             </div>
@@ -297,13 +308,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>District</label>
-                                        <input type="text" class="form-control" name="district[]">
+                                        <input type="text" class="form-control" value="{{$address->district}}" name="district[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Municipality / VDC </label>
-                                        <input type="text" class="form-control" name="municipality[]">
+                                        <input type="text" class="form-control" value="{{$address->muncipality}}" name="municipality[]">
                                     </div>
                                 </div>
                             </div>
@@ -311,13 +322,13 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Ward</label>
-                                        <input type="text" class="form-control" name="ward[]">
+                                        <input type="text" class="form-control" value="{{$address->ward}}" name="ward[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Village</label>
-                                        <input type="text" class="form-control" name="village[]">
+                                        <input type="text" class="form-control" value="{{$address->village}}" name="village[]">
                                     </div>
                                 </div>
                             </div>
@@ -325,22 +336,25 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Tole</label>
-                                        <input type="text" class="form-control" name="tole[]">
+                                        <input type="text" class="form-control" value="{{$address->tole}}" name="tole[]">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>House</label>
-                                        <input type="text" class="form-control" name="house[]">
-                                        <input type="hidden" class="form-control" name="type[]" value="temp">
+                                        <input type="text" class="form-control" value="{{$address->house}}" name="house[]">
+                                        <input type="hidden" class="form-control" name="type[]" value="current">
                                     </div>
                                 </div>
                             </div>
+                                @endforeach
                         </section>
                         <!-- Step 4 -->
                         <h5>Family Info</h5>
                         <section>
                             <div id="family-info">
+                                @foreach($person->familyDetails as $family)
+                                    <input type="hidden" value="{{$family->id}}" name="familyid[]">
                                 <div class="row">
                                     <div class="col-md-3" >
                                         <div class="form-group">
@@ -356,7 +370,7 @@
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Related Person Id :</label>
-                                            <input type="text" class="form-control" name="relatedid[]">
+                                            <input type="text" class="form-control" value="{{$family->related_person_citizenship}}" name="relatedid[]">
                                         </div>
                                     </div>
 
@@ -365,16 +379,17 @@
                                         <div class="form-group">
                                             <label>Relation Type :</label>
                                             <select class="form-control" name='relationship_type[]'>
-                                                <option>Father</option>
-                                                <option>Mother</option>
-                                                <option>Son</option>
-                                                <option>Daughter</option>
-                                                <option>Grand Father</option>
-                                                <option>Grand Mother</option>
-                                                <option>Daughter In Law</option>
+                                                <option value="father">Father</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="son">Son</option>
+                                                <option value="daughter">Daughter</option>
+                                                <option value="grandfather">Grand Father</option>
+                                                <option value="grandmother">Grand Mother</option>
+                                                <option value="daughterInLaw">Daughter In Law</option>
                                             </select>
                                         </div>
                                     </div>
+                                    @endforeach
                                     <div class="col-md-2">
                                         <div class="form-group">
                                             <label>Add More</label>
@@ -385,87 +400,93 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </section>
                         <!-- Step 5 -->
                         <h5>Education </h5>
                         <section>
+                            @foreach($person->educationDetails as $education)
+                                <input name="educationid[]" value="{{$education->id}}" type="hidden">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Degree :</label>
                                         <select class="form-control" name="degree[]">
-                                            <option value="Below SLC/SEE">Below SLC/SEE</option>
-                                            <option value="SLC">SLC/SEE</option>
-                                            <option value="Intermediate">Intermediate</option>
-                                            <option value="Bachelor">Bachelor</option>
-                                            <option value="Master">Master</option>
-                                            <option value="MPhil">MPhil</option>
-                                            <option value="PhD">PhD</option>
-                                            <option value="Vocational Training">Vocational Training</option>
-                                            <option value="Others">Others</option>
+                                            <option value="Below SLC/SEE" {{($education->degree == 'Below SLC/SEE')?'selected':''}}>Below SLC/SEE</option>
+                                            <option value="SLC" {{($education->degree == 'SLC')?'selected':''}}>SLC/SEE</option>
+                                            <option value="Intermediate" {{($education->degree == 'Intermediate')?'selected':''}}>Intermediate</option>
+                                            <option value="Bachelor" {{($education->degree == 'Bachelor')?'selected':''}}>Bachelor</option>
+                                            <option value="Master" {{($education->degree == 'Master')?'selected':''}}>Master</option>
+                                            <option value="MPhil" {{($education->degree == 'MPhil')?'selected':''}}>MPhil</option>
+                                            <option value="PhD" {{($education->degree == 'PhD')?'selected':''}}>PhD</option>
+                                            <option value="Vocational Training" {{($education->degree == 'Vocational Training')?'selected':''}}>Vocational Training</option>
+                                            <option value="Others" {{($education->degree == 'Others')?'selected':''}}>Others</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Board / Univercity</label>
-                                        <input type="text" class="form-control" name="university[]">
+                                        <input type="text" class="form-control" value="{{$education->board_university}}" name="university[]">
                                     </div>
                                 </div>
                             </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Year of Start</label>
-                                            <input type="text" class="form-control" name="year_of_start[]">
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Year of Start</label>
+                                        <input type="text" class="form-control" value="{{$education->year_of_start}}" name="year_of_start[]">
+                                    </div>
 
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Year of Completion</label>
-                                            <input type="text" class="form-control" name="year_of_completion[]">
-                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Year of Completion</label>
+                                        <input type="text" class="form-control" value="{{$education->year_of_completion}}" name="year_of_completion[]">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Stream</label>
-                                            <input type="text" class="form-control" name="stream[]">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>College</label>
-                                            <input type="text" class="form-control" name="college[]">
-                                        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Stream</label>
+                                        <input type="text" class="form-control" value="{{$education->stream}}" name="stream[]">
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>College</label>
+                                        <input type="text" class="form-control" value="{{$education->college}}" name="college[]">
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
                             <div class="pull-right col-md-2">
-                                    <a href="" class="pull-right btn btn-primary btn-md add-more-click"
-                                       rel="content-y"
-                                       role="button"><i class="fa fa-plus-circle"></i> Add</a>
+                                <a href="" class="pull-right btn btn-primary btn-md add-more-click"
+                                   rel="content-y"
+                                   role="button"><i class="fa fa-plus-circle"></i> Add</a>
 
                             </div>
                         </section>
                         <!-- Step 6 -->
                         <h5>Language </h5>
                         <section>
+                            @foreach($person->languageDetails as $language)
+                                <input type="hidden" name="languageid[]" value="{{$language->id}}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Language Known :</label>
-                                        <input type="text" class="form-control" name="language[]">
+                                        <input type="text" class="form-control" value="{{$language->language}}" name="language[]">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Can Read ?</label>
                                         <select class="form-control" name="can_read[]">
-                                            <option>Yes</option>
-                                            <option>No</option>
+                                            <option value="yes" {{($language->can_read == 'yes')?'selected':''}}>Yes</option>
+                                            <option value="yes" {{($language->can_read == 'no')?'selected':''}}>No</option>
 
                                         </select>
                                     </div>
@@ -474,12 +495,13 @@
                                     <div class="form-group">
                                         <label>Can Write?:</label>
                                         <select class="form-control" name="can_write[]">
-                                            <option>Yes</option>
-                                            <option>No</option>
+                                            <option value="yes" {{($language->can_write == 'yes')?'selected':''}}>Yes</option>
+                                            <option value="no" {{($language->can_write == 'no')?'selected':''}}>No</option>
 
                                         </select>
                                     </div>
                                 </div>
+                                @endforeach
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Add More</label>
@@ -502,7 +524,7 @@
                         <div class="modal-body text-center font-18">
                             <h3 class="mb-20">Form Submitted!</h3>
                             <div class="mb-30 text-center"><img
-                                    src="{{URL::asset('assets/vendors/images/success.png')}}"></div>
+                                        src="{{URL::asset('assets/vendors/images/success.png')}}"></div>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                         </div>
                         <div class="modal-footer justify-content-center">
@@ -614,8 +636,8 @@
             $('.steps .current').prevAll().addClass('disabled');
         },
         onFinished: function (event, currentIndex) {
-           $('form').submit();
-           $('#success-modal').modal('show');
+            $('form').submit();
+            $('#success-modal').modal('show');
         }
     });
 </script>

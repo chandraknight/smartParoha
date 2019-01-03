@@ -57,7 +57,7 @@
                         <tbody>
                         @forelse(\App\Model\Person::all() as $person)
                             <tr>
-                                <td class="table-plus">{{$person->id}}</td>
+                                <td class="table-plus">{{$loop->iteration}}</td>
                                 <td>{{$person->first_name}} {{$person->middle_name}} {{$person->last_name}}</td>
                                 <td>{{$person->DOB_np}}</td>
                                 <td>{{$person->gender}}</td>
@@ -70,9 +70,9 @@
                                             <i class="fa fa-ellipsis-h"></i>
                                         </a>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <a class="dropdown-item" href="#"><i class="fa fa-eye"></i> View</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-pencil"></i> Edit</a>
-                                            <a class="dropdown-item" href="#"><i class="fa fa-trash"></i> Delete</a>
+                                            <a class="dropdown-item" href="{{route('viewPerson',$person->id)}}"><i class="fa fa-eye"></i> View</a>
+                                            <a class="dropdown-item" href="{{route('editPerson',$person->id)}}"><i class="fa fa-pencil"></i> Edit</a>
+                                            <a class="dropdown-item" href="{{route('deletePerson',$person->id)}}" onclick="return confirm('Are you sure you want to delete?')"><i class="fa fa-trash"></i> Delete</a>
                                         </div>
                                     </div>
                                 </td>

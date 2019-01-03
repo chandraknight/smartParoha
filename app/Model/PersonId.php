@@ -12,6 +12,6 @@ class PersonId extends Model
     ];
 
     public function person(){
-        return $this -> belongsTo('App\Model\Person');
+        return $this -> belongsTo('App\Model\Person','person_id');
     }
 }
