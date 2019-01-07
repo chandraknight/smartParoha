@@ -8,7 +8,7 @@ class PersonId extends Model
 {
     protected $table = 'people_id';
     protected $fillable=[
-        'person_id','id_no','id_type'
+        'person_id','id_no','id_type','issued_date','issued_by'
     ];
 
     public function person(){

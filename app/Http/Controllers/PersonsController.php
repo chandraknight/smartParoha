@@ -62,13 +62,15 @@ class PersonsController extends Controller
         $person->addressDetails()->saveMany($address);
 
         $requestData = collect($request->only(
-            'personname','relatedid','relationship_type'
+            'personname','relatedid','relationship_type','relateidissuedate','relatedidissueby'
         ));
         $family = $requestData->transpose()->map(function($familyData){
             return new PersonFamilies([
                 'related_person_id'=>$familyData[0],
                 'related_person_citizenship'=>$familyData[1],
                 'relationship_type'=>$familyData[2],
+                'issued_date'=>$familyData[3],
+                'issued_by'=>$familyData[4]
             ]);
         });
 
@@ -102,12 +104,14 @@ class PersonsController extends Controller
         $person->languageDetails()->saveMany($language);
 
         $requestData = collect($request->only(
-            'idnumber','idtype'
+            'idnumber','idtype','personidissueddate','personidissuedby'
         ));
         $ids = $requestData->transpose()->map(function($idData){
             return new PersonId([
                 'id_no'=>$idData[0],
-                'id_type'=>$idData[1]
+                'id_type'=>$idData[1],
+                'issued_date'=>$idData[2],
+                'issued_by'=>$idData[3]
             ]);
         });
         $person->identityDetails()->saveMany($ids);
@@ -128,6 +132,7 @@ class PersonsController extends Controller
     public function updatePerson(Request $request){
 //        dd($request);
         $person = Person::findorfail($request->id);
+//        dd($person);
         if(isset($request->photo)){
             Storage::disk('public')->delete('/personphoto/'.$person->photo);
             $filenamewithext = $request->file('photo')->getClientOriginalName();
@@ -153,25 +158,31 @@ class PersonsController extends Controller
             'marital_status'=>$request->marital,
             'email'=>$request->email
         ]);
+//        dd($person);
         $requestData = collect($request->only(
-            'identityid','idnumber','idtype'
+            'identityid','idnumber','idtype','personidissueddate','personidissuedby'
         ));
-
+//dd($requestData);
         $identities = $requestData->transpose()->map(function($identityData){
+//            dd($identityData);
             if($identityData[0] != null){
                 $identity = PersonId::findorfail($identityData[0]);
                 $identity->update([
                     'id_no'=>$identityData[1],
-                    'id_type'=>$identityData[2]
+                    'id_type'=>$identityData[2],
+                    'issued_date'=>$identityData[3],
+                    'issued_by'=>$identityData[4]
                 ]);
             } else {
                 return new PersonId([
                     'id_no'=>$identityData[1],
-                    'id_type'=>$identityData[2]
+                    'id_type'=>$identityData[2],
+                    'issued_date'=>$identityData[3],
+                    'issued_by'=>$identityData[4]
                 ]);
             }
         });
-//        dd($identities->first());
+//        dd($identities);
         if($identities->first() != null ){
             $person->identityDetails()->saveMany($identities);
         }
@@ -195,26 +206,34 @@ class PersonsController extends Controller
                 ]);
             }
         });
+//        dd($addresses);
 
         $requestData = collect($request->only(
-            'familyid','personname','relatedid','relationship_type'
+            'familyid','personname','relatedid','relationship_type','relatedidissuedate','relatedidissueby'
         ));
+//        dd($requestData);
         $families = $requestData->transpose()->map(function($familyData){
+//            dd($familyData);
             if($familyData[0] != null){
                 $family = PersonFamilies::findorfail($familyData[0]);
                 $family->update([
-                    'related_person_id'=>$familyData[1],
-                    'relatedid'=>$familyData[2],
-                    'relationship_type'=>$familyData[3]
+                    'related_person_name'=>$familyData[1],
+                    'related_person_citizenship'=>$familyData[2],
+                    'relationship_type'=>$familyData[3],
+                    'issued_date'=>$familyData[4],
+                    'issued_by'=>$familyData[5]
                 ]);
             } else {
                 return new PersonFamilies([
-                    'related_person_id'=>$familyData[1],
-                    'relatedid'=>$familyData[2],
-                    'relationship_type'=>$familyData[3]
+                    'related_person_name'=>$familyData[1],
+                    'related_person_citizenship'=>$familyData[2],
+                    'relationship_type'=>$familyData[3],
+                    'issued_date'=>$familyData[4],
+                    'issued_by'=>$familyData[5]
                 ]);
             }
         });
+//        dd($families);
         if($families->first() != null){
             $person->familyDetails()->saveMany($families);
         }

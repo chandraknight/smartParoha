@@ -16,7 +16,7 @@ class CreatePeopleFamiliesTable extends Migration
         Schema::create('people_families', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('person_id')->unsigned();
-            $table->integer('related_persion_id')->unsigned()->nullable();
+            $table->string('related_person_name')->nullable();
             $table->string('related_person_citizenship')->nullable();
             $table->enum('relationship_type', ['father', 'mother', 'brother', 'sister', 'son', 'daughter',
                 'daughterInlaw', 'grandson', 'grandDaughter']);

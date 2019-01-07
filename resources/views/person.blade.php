@@ -183,17 +183,9 @@
                         {{--step 2--}}
                         <h5>Identity Info</h5>
                         <section>
-<<<<<<< HEAD
-                            <div id="identity-info">
-                                <div id="info0">
-                                <div class="row">
-=======
->>>>>>> 63bde529be64768a758cfe43360d2641de54c1d5
-
                             <div id="info">
                                 <div class="identity-info">
                                     <div class="row ">
-
                                         <div class="col-md-3">
                                             <div class="form-group">
                                                 <label>Identity Number</label>
@@ -212,17 +204,27 @@
                                                 </select>
                                             </div>
                                         </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Identity Issued Date</label>
+                                                <input type="date" class="form-control" name="personidissueddate[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label>Identity Issued By</label>
+                                                <input type="text" class="form-control" name="personidissuedby[]">
+                                            </div>
+                                        </div>
 
                                     </div>
 
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-
                                         <a class="pull-right btn btn-primary btn-md add-more-click"
                                             id="addrowIdentity"><i
                                                 class="fa fa-plus-circle"></i> Add</a>
-
                                     </div>
                                 </div>
                             </div>
@@ -345,7 +347,7 @@
                                     <div class="form-group">
                                         <label>House</label>
                                         <input type="text" class="form-control" name="house[]">
-                                        <input type="hidden" class="form-control" name="type[]" value="temp">
+                                        <input type="hidden" class="form-control" name="type[]" value="temporary">
                                     </div>
                                 </div>
                             </div>
@@ -353,111 +355,127 @@
                         <!-- Step 4 -->
                         <h5>Family Info</h5>
                         <section>
-                            <div id="family-info">
+                            <div class="family-info">
                                 <div class="row">
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Person :</label>
-                                            <select class="form-control" name="personname[]">
-                                                <option>Normal</option>
-                                                <option>Difficult</option>
-                                                <option>Hard</option>
-                                            </select>
+                                            <input type="text" class="form-control" name="personname[]">
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="form-group">
-                                            <label>Related Person Id :</label>
+                                            <label>Related Person Identity Number :</label>
                                             <input type="text" class="form-control" name="relatedid[]">
                                         </div>
                                     </div>
-
-
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Related Person Id Issued Date :</label>
+                                            <input type="date" class="form-control" name="relatedidissuedate[]">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Related Person Id Issued By :</label>
+                                            <input type="text" class="form-control" name="relatedidissueby[]">
+                                        </div>
+                                    </div>
                                     <div class="col-md-3">
                                         <div class="form-group">
                                             <label>Relation Type :</label>
                                             <select class="form-control" name='relationship_type[]'>
-                                                <option>Father</option>
-                                                <option>Mother</option>
-                                                <option>Son</option>
-                                                <option>Daughter</option>
-                                                <option>Grand Father</option>
-                                                <option>Grand Mother</option>
-                                                <option>Daughter In Law</option>
+                                                <option value="father">Father</option>
+                                                <option value="mother">Mother</option>
+                                                <option value="brother">Brother</option>
+                                                <option value="sister">Sister</option>
+                                                <option value="son">Son</option>
+                                                <option value="daughter">Daughter</option>
+                                                <option value="daughterInLaw">Daughter-In-Law</option>
+                                                <option value="grandson">Grand Son</option>
+                                                <option value="grandDaughter">Grand Daughter</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-2">
-                                        <div class="form-group">
-                                            <label>Add More</label>
-                                            <a href="" class="pull-right btn btn-primary btn-md add-more-click"
-                                               rel="content-y"
-                                               role="button" id="add-more"><i class="fa fa-plus-circle"></i></a>
 
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
+                            <div class="col-md-2">
+                                    <div class="form-group">
+                                        <label>Add More</label>
+                                        <a class="pull-right btn btn-primary btn-md add-more-click"
+                                           rel="content-y"
+                                           role="button" id="add-more-family"><i class="fa fa-plus-circle"></i></a>
+
+                                    </div>
+                                </div>
+
                         </section>
                         <!-- Step 5 -->
                         <h5>Education </h5>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Degree :</label>
-                                        <select class="form-control" name="degree[]">
-                                            <option value="Below SLC/SEE">Below SLC/SEE</option>
-                                            <option value="SLC">SLC/SEE</option>
-                                            <option value="Intermediate">Intermediate</option>
-                                            <option value="Bachelor">Bachelor</option>
-                                            <option value="Master">Master</option>
-                                            <option value="MPhil">MPhil</option>
-                                            <option value="PhD">PhD</option>
-                                            <option value="Vocational Training">Vocational Training</option>
-                                            <option value="Others">Others</option>
-                                        </select>
+                            <div class="education-info">
+                                <div class="row">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Degree :</label>
+                                                <select class="form-control" name="degree[]">
+                                                    <option value="Below SLC/SEE">Below SLC/SEE</option>
+                                                    <option value="SLC">SLC/SEE</option>
+                                                    <option value="Intermediate">Intermediate</option>
+                                                    <option value="Bachelor">Bachelor</option>
+                                                    <option value="Master">Master</option>
+                                                    <option value="MPhil">MPhil</option>
+                                                    <option value="PhD">PhD</option>
+                                                    <option value="Vocational Training">Vocational Training</option>
+                                                    <option value="Others">Others</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Board / University</label>
+                                                <input type="text" class="form-control" name="university[]">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Board / Univercity</label>
-                                        <input type="text" class="form-control" name="university[]">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Year of Start</label>
-                                        <input type="text" class="form-control" name="year_of_start[]">
-                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Year of Start</label>
+                                                <input type="text" class="form-control" name="year_of_start[]">
+                                            </div>
 
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Year of Completion</label>
-                                        <input type="text" class="form-control" name="year_of_completion[]">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Year of Completion</label>
+                                                <input type="text" class="form-control" name="year_of_completion[]">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Stream</label>
+                                                <input type="text" class="form-control" name="stream[]">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>College</label>
+                                                <input type="text" class="form-control" name="college[]">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Stream</label>
-                                        <input type="text" class="form-control" name="stream[]">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>College</label>
-                                        <input type="text" class="form-control" name="college[]">
-                                    </div>
-                                </div>
-                            </div>
+
                             <div class="pull-right col-md-2">
-                                <a href="" class="pull-right btn btn-primary btn-md add-more-click"
+                                <a id="add-education" class="pull-right btn btn-primary btn-md add-more-click"
                                    rel="content-y"
                                    role="button"><i class="fa fa-plus-circle"></i> Add</a>
 
@@ -466,42 +484,47 @@
                         <!-- Step 6 -->
                         <h5>Language </h5>
                         <section>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Language Known :</label>
-                                        <input type="text" class="form-control" name="language[]">
+                            <div class="language-info">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Language Known :</label>
+                                            <input type="text" class="form-control" name="language[]">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Can Read ?</label>
-                                        <select class="form-control" name="can_read[]">
-                                            <option>Yes</option>
-                                            <option>No</option>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Can Read ?</label>
+                                            <select class="form-control" name="can_read[]">
+                                                <option>Yes</option>
+                                                <option>No</option>
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-2">
-                                    <div class="form-group">
-                                        <label>Can Write?:</label>
-                                        <select class="form-control" name="can_write[]">
-                                            <option>Yes</option>
-                                            <option>No</option>
+                                    <div class="col-md-2">
+                                        <div class="form-group">
+                                            <label>Can Write?:</label>
+                                            <select class="form-control" name="can_write[]">
+                                                <option>Yes</option>
+                                                <option>No</option>
 
-                                        </select>
+                                            </select>
+                                        </div>
                                     </div>
+
                                 </div>
+                            </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
                                         <label>Add More</label>
-                                        <a href="" class="pull-right btn btn-primary btn-md add-more-click"
+                                        <a id="add-language" class="pull-right btn btn-primary btn-md add-more-click"
                                            rel="content-y"
                                            role="button"><i class="fa fa-plus-circle"></i></a>
                                     </div>
                                 </div>
-                            </div>
+
+
                         </section>
                     </form>
                 </div>
@@ -552,21 +575,7 @@
     });
 </script>
 <script>
-<<<<<<< HEAD
-    $(document).ready(function(){
-        var i = 1;
-        $("#add-identity").click(function(){
-            // console.log("button clicked");
-            var ht = $('#info' + i).html("<div class=\"col-md-3\"><div class=\"form-group\"><label>Identity Number"+
-                "</label><input type=\"text\" class=\"form-control\" name=\"idnumber[]\"></div></div>"+
-                "<div class=\"col-md-3\"><div class=\"form-group\"><label>ID Type :</label>"+
-                "<select class=\"form-control\" name='idtype[]'><option value=\"citizenship\">Citizenship</option>"+
-                "<option value=\"pasport\">PassPort</option><option value=\"voterid\">Voter ID</option>"+
-                "<option value=\"other\">Other</option></select></div></div>");
-            console.log(ht);
-            $("#identity-info").append('<div id="info'+i+'">');
-            i++;
-=======
+
     $(document).ready(function () {
         var counter = 0;
 
@@ -592,22 +601,273 @@
                 '</div>' +
                 '</div>';
 
+            cols += '<div class="col-md-3" ><div class="form-group">' +
+                '<label>Identity Issued Date</label>' +
+                '<input type="date" class="form-control" name="personidissueddate[]">' +
+                '</div>' +
+                '</div>';
+
+            cols += '<div class="col-md-3" ><div class="form-group">' +
+                '<label>Identity Issued By</label>' +
+                '<input type="text" class="form-control" name="personidissuedby[]">' +
+                '</div>' +
+                '</div>';
+
             cols += '<div class="col-md-2">' +
                 '<div class="form-group">' +
-                '<label>Add More</label>' +
+                '<label>Remove</label>' +
                 '<a  class="pull-right btn btn-primary btn-md add-more-click ibtnDel"' +
                 'rel="content-y"' +
                 'role="button" ><i class="fa fa-minus-circle"></i></a>' +
                 ' </div>' +
-                '</div>'   ;
+                '</div>';
+
             newRow.append(cols);
             $("div.identity-info").append(newRow);
             counter++;
->>>>>>> 63bde529be64768a758cfe43360d2641de54c1d5
+
         });
 
 
         $("div.identity-info").on("click", ".ibtnDel", function (event) {
+            $(this).closest(".row").remove();
+            counter -= 1
+        });
+
+
+    });
+
+</script>
+<script>
+
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#add-more-family").on("click", function () {
+            var newRow = $("<div class='row'>");
+            var cols = "";
+
+
+            cols += ' <div class="col-md-3">'+
+                '<div class="form-group">'+
+                '<label>Person :</label>'+
+            '<input type="text" class="form-control" name="personname[]">'+
+               ' </div>'+
+                '</div>';
+
+            cols += ' <div class="col-md-3">'+
+               ' <div class="form-group">'+
+                '<label>Related Person Id :</label>'+
+           ' <input type="text" class="form-control" name="relatedid[]">'+
+                '</div>'+
+                '</div>';
+
+            cols += ' <div class="col-md-3">'+
+                ' <div class="form-group">'+
+                '<label>Related Person Id Issued Date :</label>'+
+                ' <input type="date" class="form-control" name="relatedidissuedate[]">'+
+                '</div>'+
+                '</div>';
+
+            cols += ' <div class="col-md-3">'+
+                ' <div class="form-group">'+
+                '<label>Related Person Id Issued By :</label>'+
+                ' <input type="text" class="form-control" name="relatedidissueby[]">'+
+                '</div>'+
+                '</div>';
+
+            cols +=  '<div class="col-md-3">'+
+                '<div class="form-group">'+
+               ' <label>Relation Type :</label>'+
+            '<select class="form-control" name="relationship_type[]">'+
+                '<option value="father">Father</option>'+
+                '<option value="mother">Mother</option>'+
+               ' <option value="brother">Brother</option>'+
+                '<option value="sister">Sister</option>'+
+                '<option value="son">Son</option>'+
+               ' <option value="daughter">Daughter</option>'+
+               ' <option value="daughterInLaw">Daughter-In-Law</option>'+
+               ' <option value="grandson">Grand Son</option>'+
+            '<option value="grandDaughter">Grand Daughter</option>'+
+            '</select>'+
+            '</div>'+
+            '</div>';
+            cols += '<div class="col-md-2">' +
+                '<div class="form-group">' +
+                '<label>Remove</label>' +
+                '<a  class="pull-right btn btn-primary btn-md add-more-click ibtnDel2"' +
+                'rel="content-y"' +
+                'role="button" ><i class="fa fa-minus-circle"></i></a>' +
+                ' </div>' +
+                '</div>';
+
+            newRow.append(cols);
+            $("div.family-info").append(newRow);
+            counter++;
+
+        });
+
+
+        $("div.family-info").on("click", ".ibtnDel2", function (event) {
+            $(this).closest(".row").remove();
+            counter -= 1
+        });
+
+
+    });
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#add-education").on("click", function () {
+            var newRow = $("<div class='row'>");
+            var cols = "";
+
+
+            cols += '<div class="row">'+
+                '<div class="col-md-5">'+
+                '<div class="form-group">'+
+            '<label>Degree :</label>'+
+            '<select class="form-control" name="degree[]">'+
+            '<option value="Below SLC/SEE">Below SLC/SEE</option>'+
+            '<option value="SLC">SLC/SEE</option>'+
+            ' <option value="Intermediate">Intermediate</option>'+
+            '<option value="Bachelor">Bachelor</option>'+
+            '<option value="Master">Master</option>'+
+            '<option value="MPhil">MPhil</option>'+
+            ' <option value="PhD">PhD</option>'+
+            '<option value="Vocational Training">Vocational Training</option>'+
+            '<option value="Others">Others</option>'+
+            '</select>'+
+            '</div>'+
+            '</div>'+
+            '<div class="col-md-5">'+
+            '<div class="form-group">'+
+            '<label>Board / University</label>'+
+            '<input type="text" class="form-control" name="university[]">'+
+            ' </div>'+
+            '</div>'+
+            ' </div>';
+
+            cols += '<div class="row">'+
+            '<div class="col-md-5">'+
+            '<div class="form-group">'+
+            '<label>Year of Start</label>'+
+            '<input type="text" class="form-control" name="year_of_start[]">'+
+            '</div>'+
+
+            '</div>'+
+            ' <div class="col-md-5">'+
+            ' <div class="form-group">'+
+            '<label>Year of Completion</label>'+
+            '<input type="text" class="form-control" name="year_of_completion[]">'+
+            '</div>'+
+            '</div>'+
+            '</div>';
+
+
+            cols +=  '<div class="row">'+
+                '<div class="col-md-5">'+
+                '<div class="form-group">'+
+                '<label>Stream</label>'+
+                '<input type="text" class="form-control" name="stream[]">'+
+                '</div>'+
+                '</div>'+
+                '<div class="col-md-5">'+
+                '<div class="form-group">'+
+                ' <label>College</label>'+
+                '<input type="text" class="form-control" name="college[]">'+
+                '</div>'+
+                '</div>'+
+                '</div>';
+
+
+            cols += '<div class="col-md-2">' +
+                '<div class="form-group">' +
+                '<label>Remove</label>' +
+                '<a  class="pull-right btn btn-primary btn-md add-more-click ibtnDel3"' +
+                'rel="content-y"' +
+                'role="button" ><i class="fa fa-minus-circle"></i></a>' +
+                ' </div>' +
+                '</div>';
+
+            newRow.append(cols);
+            $("div.education-info").append(newRow);
+            counter++;
+
+        });
+
+
+        $("div.education-info").on("click", ".ibtnDel3", function (event) {
+            $(this).closest(".row").remove();
+            counter -= 1
+        });
+
+
+    });
+
+</script>
+
+<script>
+
+    $(document).ready(function () {
+        var counter = 0;
+
+        $("#add-language").on("click", function () {
+            var newRow = $("<div class='row'>");
+            var cols = "";
+
+
+            cols += '<div class="col-md-6">'+
+            '<div class="form-group">'+
+            '<label>Language Known :</label>'+
+            '<input type="text" class="form-control" name="language[]">'+
+            '</div>'+
+            '</div>';
+
+            cols += '<div class="col-md-2">'+
+                '<div class="form-group">'+
+                '<label>Can Read ?</label>'+
+                '<select class="form-control" name="can_read[]">'+
+                '<option>Yes</option>'+
+                '<option>No</option>'+
+                '</select>'+
+            '</div>'+
+            '</div>';
+
+
+            cols += '<div class="col-md-2">'+
+                '<div class="form-group">'+
+                '<label>Can Write?:</label>'+
+                '<select class="form-control" name="can_write[]">'+
+                '<option>Yes</option>'+
+                ' <option>No</option>'+
+                '</select>'+
+                ' </div>'+
+                '</div>';
+
+
+            cols += '<div class="col-md-2">' +
+                '<div class="form-group">' +
+                '<label>Remove</label>' +
+                '<a  class="pull-right btn btn-primary btn-md add-more-click ibtnDel4"' +
+                'rel="content-y"' +
+                'role="button" ><i class="fa fa-minus-circle"></i></a>' +
+                ' </div>' +
+                '</div>';
+
+            newRow.append(cols);
+            $("div.language-info").append(newRow);
+            counter++;
+
+        });
+
+
+        $("div.language-info").on("click", ".ibtnDel4", function (event) {
             $(this).closest(".row").remove();
             counter -= 1
         });
